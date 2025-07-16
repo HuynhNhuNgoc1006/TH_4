@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="name" value="Nguyen Van A">
+    <button id="clickbt">Click</button>
+    <span id="output"></span>
+    <script>
+        var inputname = document.getElementById('name');
+        var clickbt = document.getElementById('clickbt');
+        var output = document.getElementById('output');
+
+        function checkAll() {
+            var fullname = inputname.value;
+            var lastname = fullname.substring(fullname.lastIndexOf(' ') + 1);
+            output.textContent = 'Hello ' + lastname;
+        }
+        clickbt.onclick = checkAll;
+    </script>
+</body>
+
+</html>

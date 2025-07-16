@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Greeting App</title>
+    <style>
+        /* Optional: Basic styling for better visibility of output */
+        
+        #output {
+            font-weight: bold;
+            color: blue;
+            margin-left: 10px;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="name" placeholder="Ví dụ: Nguyen Van A">
+    <button id="clickbt">Click</button>
+    <br><br>
+    <span id="output"></span>
+
+    <script>
+        var inputname = document.getElementById('name');
+        var clickbt = document.getElementById('clickbt');
+        var output = document.getElementById('output');
+
+        function checkInput() {
+            var inputValue = inputname.value.trim();
+            output.className = '';
+
+            if (inputValue === '') {
+
+                output.textContent = 'Bạn chưa nhập gì cả!';
+                output.classList.add('error');
+            } else if (!isNaN(inputValue) && inputValue !== '') {
+
+                output.textContent = 'Bạn mới vừa nhập số!';
+                output.classList.add('error');
+            } else if (isNaN(inputValue)) {
+
+                var lastName = inputValue.substring(inputValue.lastIndexOf(' ') + 1);
+                output.textContent = 'Hello ' + lastName + '! Bạn mới vừa nhập text.';
+                output.classList.add('success');
+            }
+        }
+
+        clickbt.onclick = checkInput;
+    </script>
+</body>
+
+</html>
