@@ -38,20 +38,22 @@
 
         function checkInput() {
             var inputValue = inputname.value.trim();
+            var pattern = /\d/;
+
             output.className = '';
 
             if (inputValue === '') {
 
                 output.textContent = 'Bạn chưa nhập gì cả!';
                 output.classList.add('error');
-            } else if (!isNaN(inputValue) && inputValue !== '') {
+            } else if (pattern.test(inputValue)) {
 
                 output.textContent = 'Bạn mới vừa nhập số!';
                 output.classList.add('error');
-            } else if (isNaN(inputValue)) {
+            } else {
 
-                var lastName = inputValue.substring(inputValue.lastIndexOf(' ') + 1);
-                output.textContent = 'Hello ' + lastName + '! Bạn mới vừa nhập text.';
+
+                output.textContent = '! Bạn mới vừa nhập text.';
                 output.classList.add('success');
             }
         }
